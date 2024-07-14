@@ -5,6 +5,9 @@
 namespace ElasticSearch.Experiments
 {
     using System;
+    using ElasticSearch.Lib.Interfaces;
+    using ElasticSearch.Lib.Objects;
+    using ElasticSearch.Lib.Services;
 
     /// <summary>
     /// Entry point of the files.
@@ -24,6 +27,13 @@ namespace ElasticSearch.Experiments
         /// <param name="args">Holds the pre requsit Arguments.</param>
         public static void Main(string[] args)
         {
+            PaymentProcess paymentProcess = new PaymentProcess();
+            paymentProcess.Name = "Udhayarajan J";
+            paymentProcess.PaymentType = "UPI";
+            paymentProcess.Amount = 12000.00m;
+            paymentProcess.TransactionId = Guid.NewGuid().ToString();
+            IPaymentProcess paymentProcessService = new PaymentProcessService();
+            paymentProcessService.SavePaymentTransaction(paymentProcess).Wait();
             Console.WriteLine("Hello World!");
         }
     }

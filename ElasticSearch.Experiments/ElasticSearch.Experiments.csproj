@@ -38,4 +38,9 @@
 		</PackageReference>
 	</ItemGroup>
 
+
+	<ItemGroup>
+	  <ProjectReference Include="..\ElasticSearch.Lib\ElasticSearch.Lib.csproj" />
+	</ItemGroup>
+
 </Project>
