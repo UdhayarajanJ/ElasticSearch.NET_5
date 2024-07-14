@@ -1,0 +1,2 @@
+﻿D:\Apps\NetApps\ElasticSearch.Experiments\ElasticSearch.Experiments\Program.cs
+D:\Apps\NetApps\ElasticSearch.Experiments\ElasticSearch.Experiments\ElasticSearch.Experiments.xml
