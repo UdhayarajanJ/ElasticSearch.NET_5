@@ -8,7 +8,6 @@ namespace ElasticSearch.Lib.Services
     using System.Collections.Generic;
     using System.Threading.Tasks;
     using Elastic.Clients.Elasticsearch;
-    using Elastic.Clients.Elasticsearch.QueryDsl;
     using ElasticSearch.Lib.Interfaces;
     using ElasticSearch.Lib.Objects;
 
