@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ElasticSearch.Experiments</name>
+    </assembly>
+    <members>
+        <member name="T:ElasticSearch.Experiments.Program">
+            <summary>
+            Entry point of the files.
+            </summary>
+        </member>
+        <member name="M:ElasticSearch.Experiments.Program.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:ElasticSearch.Experiments.Program"/> class.
+            </summary>
+        </member>
+        <member name="M:ElasticSearch.Experiments.Program.Main(System.String[])">
+            <summary>
+            Entry point of application main methods.
+            </summary>
+            <param name="args">Holds the pre requsit Arguments.</param>
+        </member>
+    </members>
+</doc>

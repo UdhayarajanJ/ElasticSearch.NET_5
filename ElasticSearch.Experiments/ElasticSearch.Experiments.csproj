@@ -1,8 +1,46 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>net5.0</TargetFramework>
-  </PropertyGroup>
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net5.0</TargetFramework>
+		<Nullable>disable</Nullable>
+		<SonarQubeHostUrl>http://localhost:9000</SonarQubeHostUrl>
+		<SonarQubeProjectKey>Elastic-Search-With-Sonar-Implementation</SonarQubeProjectKey>
+		<SonarQubeLoginToken>sqp_fb4e15fbd2aa0d40d6777860274c62da0bf2c585</SonarQubeLoginToken>
+	</PropertyGroup>
+
+
+	<Target Name="SonarScan">
+		<Exec Command="dotnet sonarscanner begin /k:&quot;$(SonarQubeProjectKey)&quot; /d:sonar.host.url=&quot;$(SonarQubeHostUrl)&quot; /d:sonar.token=&quot;$(SonarQubeLoginToken)&quot;" />
+		<Exec Command="dotnet build" />
+		<Exec Command="dotnet sonarscanner end /d:sonar.token=&quot;$(SonarQubeLoginToken)&quot;" />
+	</Target>
+
+	<PropertyGroup>
+		<DocumentationFile>$(OutputPath)$(AssemblyName).xml</DocumentationFile>
+		<NoWarn>$(NoWarn),1573,1591,1712</NoWarn>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Remove="stylecop.json" />
+	</ItemGroup>
+
+
+	<ItemGroup>
+		<AdditionalFiles Include="stylecop.json" />
+	</ItemGroup>
+
+
+	<ItemGroup>
+		<PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+
+
+	<ItemGroup>
+	  <ProjectReference Include="..\ElasticSearch.Lib\ElasticSearch.Lib.csproj" />
+	</ItemGroup>
 
 </Project>
