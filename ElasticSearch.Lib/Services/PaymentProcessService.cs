@@ -173,15 +173,7 @@ namespace ElasticSearch.Lib.Services
                 {
                     x.Index(nameof(PaymentProcess).ToLower());
                     x.From(0);
-                    //x.Query(q => q.Wildcard(x => x.Field(x => x.Name).Value(string.Concat(name))));
-                    x.Query(q => q
-  .Bool(b => b
-    .Should(m => m
-      .Wildcard(c => c
-        .Field(x => x.Name).Value("*Udhayarajan*")
-      )
-    )
-  ));
+                    x.Query(x => x.Wildcard(x => x.Field(x => x.Name.Suffix("keyword")).Value($"*{name}*")));
                 });
             if (searchResponse.IsValidResponse)
             {
